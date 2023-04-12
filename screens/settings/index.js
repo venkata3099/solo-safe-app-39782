@@ -49,7 +49,11 @@ const Settings = () => {
       navigation.navigate("supportSendFeedback");
     }}><Text style={styles.ujoxCAGM}>Support/ Send Feedback</Text></Pressable><Pressable onPress={() => {
       navigation.navigate("Untitled23");
-    }}><Text style={styles.uekMrSXm}>Log out</Text></Pressable></View>;
+    }}><Text style={styles.uekMrSXm}>Log out</Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("privacyPolicy");
+    }}><Text style={styles.CDkUnOeN}>Privacy Policy</Text></Pressable><Pressable onPress={() => {
+      navigation.navigate("termsAndConditions");
+    }}><Text style={styles.tMmaZops}>Terms and conditions</Text></Pressable></View>;
 };
 
 const styles = StyleSheet.create({
@@ -186,6 +190,20 @@ const styles = StyleSheet.create({
     borderRadius: 0
   },
   uekMrSXm: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  CDkUnOeN: {
+    width: 100,
+    height: 50,
+    lineHeight: 14,
+    fontSize: 14,
+    borderRadius: 0
+  },
+  tMmaZops: {
     width: 100,
     height: 50,
     lineHeight: 14,
