@@ -3,60 +3,171 @@ import {
   Text,
   StyleSheet,
   View,
+  ScrollView,
+  SafeAreaView,
   TextInput,
-  Image,
-  ScrollView
+  Pressable
 } from "react-native";
 
-const InviteFriendsScreen = params => {
-  const [value, setValue] = useState("");
+const AddCardDetailsScreen = (params) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [country, setCountry] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cvv, setCvv] = useState("");
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.searchBar}>
-          <Text style={styles.searchText}>Search</Text>
-          <View
-            style={{
-              borderWidth: 1,
-              borderRadius: 10,
-              borderColor: "#C4C4C4",
-              flexDirection: "row",
-              alignItems: "center"
-            }}>
-            <View
-              style={{
-                width: "90%"
-              }}>
-              <TextInput
-                style={textStyles.input}
-                placeholder="Enter"
-                value={value}
-                onChangeText={text => setValue(text)}
-                placeholderTextColor="#ddd"
-              />
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.header}>
+          <View style={styles.paletteContainer}>
+            <View style={styles.unSelected}>
+              <Text>Linked Cards</Text>
             </View>
-            <Image source={require("./assets/search.png")} />
+            <View style={styles.selected}>
+              <Text>Add Card</Text>
+            </View>
           </View>
         </View>
-        <View></View>
-        <View style={styles.frequently}>
-          <Text style={styles.frequentlyText}>Send Invite</Text>
+        <View style={styles.fullInputs}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>First Name</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setFirstName(text)}
+              value={firstName}
+              placeholder="Enter your first name"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Last Name</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setLastName(text)}
+              value={lastName}
+              placeholder="Enter your last name"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Address 1</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setAddress1(text)}
+              value={address1}
+              placeholder="Enter your Address"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Address 2</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setAddress2(text)}
+              value={address2}
+              placeholder="Enter your Address"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
         </View>
-        <View>
-          <Follower name="Cody Fisher" bgcolor="#D9DADD" invite={true} />
-          <Follower name="Johnny watson" bgcolor="#FCF1D6" invite={true} />
-          <Follower name="Jenny Wilson" bgcolor="#F9D8D9" invite={true} />
+        <View style={styles.halfInputs}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>City</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setCity(text)}
+              value={city}
+              placeholder="Enter your City"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>State</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setState(text)}
+              value={state}
+              placeholder="Enter your State"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
         </View>
-        <View style={styles.frequently}>
-          <Text style={styles.frequentlyText}>More</Text>
+        <View style={styles.halfInputs}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Zip</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setZip(text)}
+              value={zip}
+              placeholder="Enter your Zip Code"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Country</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setCountry(text)}
+              value={country}
+              placeholder="Enter your Country"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
         </View>
-        <View>
-          <Follower name="Anthony" bgcolor="#D9DADD" />
-          <Follower name="Andres" bgcolor="#F9D8D9" />
-          <Follower name="Ander" bgcolor="#FCF1D6" />
+        <View style={styles.halfInputs}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>Card Expiration</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setCardExpiry(text)}
+              value={cardExpiry}
+              placeholder="Enter Card Expiration"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputText}>CVV</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setCvv(text)}
+              value={cvv}
+              placeholder="Enter your CVV"
+              placeholderTextColor="#9B9B9B"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+        <View style={styles.btnContainer}>
+          <Pressable style={styles.btn}>
+            <Text style={styles.btnText}>Update</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -65,87 +176,81 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
-  searchBar: {
+  header: {
     padding: 20
   },
-  searchText: {
-    marginLeft: 10,
-    marginBottom: 10
+  paletteContainer: {
+    flexDirection: "row",
+    backgroundColor: "#F1F1F1",
+    height: 60,
+    width: 250,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingHorizontal: 15
   },
-  text: {
-    marginLeft: 30,
-    marginBottom: 10
+  selected: {
+    backgroundColor: "#fff",
+    padding: 10,
+    paddingHorizontal: 25,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#e6e6e6"
   },
-  frequently: {
-    height: 50,
-    width: "100%",
-    backgroundColor: "#DADADA",
-    flexDirection: "column",
+  unSelected: {
+    padding: 10,
+    paddingHorizontal: 25
+  },
+  fullInputs: {
+    paddingHorizontal: 20,
     justifyContent: "center"
   },
-  frequentlyText: {
-    marginLeft: 30,
-    color: "#8F8D86"
-  }
-});
-export default InviteFriendsScreen;
-
-const Follower = props => {
-  return (
-    <View style={FollowerStyles.follower}>
-      <View style={FollowerStyles.main}>
-        <View
-          style={[
-            FollowerStyles.image,
-            {
-              backgroundColor: props.bgcolor
-            }
-          ]}>
-          <Image source={require("./assets/edit.png")} />
-        </View>
-        <Text>{props.name}</Text>
-      </View>
-      {props.invite && <Text>Invite</Text>}
-    </View>
-  );
-};
-
-const FollowerStyles = StyleSheet.create({
-  follower: {
-    marginHorizontal: 20,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "rgba(0,0,0,0.5)",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 10,
-    justifyContent: "space-between"
+  inputContainer: {
+    flexDirection: "column",
+    flex: 1,
+    justifyContent: "center",
+    marginHorizontal: 5
   },
-  main: {
-    flexDirection: "row",
-    alignItems: "center"
+  inputText: {
+    fontSize: 16,
+    marginLeft: 20
   },
-  image: {
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    marginRight: 15,
-    flexDirection: "row",
+  input: {
+    borderWidth: 1,
+    borderColor: "#e6e6e6",
+    borderRadius: 10,
+    padding: 10,
+    paddingLeft: 20,
+    marginVertical: 10,
+    width: "100%"
+  },
+  halfInputs: {
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+    flexDirection: "row" // borderColor: '#9B9B9B',
+    // borderWidth: 1,
+  },
+  btnContainer: {
+    padding: 30,
+    paddingTop: 10,
+    paddingHorizontal: 40,
+    justifyContent: "center",
+    marginTop: 20
+  },
+  btn: {
+    backgroundColor: "black",
+    height: 50,
+    width: "100%",
+    padding: 10,
+    paddingHorizontal: 25,
+    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center"
-  }
-});
-const textStyles = StyleSheet.create({
-  input: {
-    backgroundColor: "#fff",
-    height: 53,
-    color: "#000",
-    borderRadius: 10,
-    fontSize: 14,
-    paddingHorizontal: 10
   },
-  error: {
-    fontSize: 13,
-    color: "#FA060D",
-    paddingTop: 8
+  btnText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold"
   }
 });
+export default AddCardDetailsScreen;
