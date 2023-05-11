@@ -1,219 +1,182 @@
 import React, { useState } from "react";
 import {
   Text,
-  StyleSheet,
   View,
-  ScrollView,
-  SafeAreaView,
+  StyleSheet,
   TextInput,
-  Pressable
+  ScrollView,
+  Pressable,
+  Image
 } from "react-native";
 
-const AddCardDetailsScreen = (params) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
-  const [country, setCountry] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cvv, setCvv] = useState("");
+const SubscriptionTrial = () => {
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.paletteContainer}>
-            <View style={styles.unSelected}>
-              <Text>Linked Cards</Text>
-            </View>
-            <View style={styles.selected}>
-              <Text>Add Card</Text>
-            </View>
-          </View>
+        <Text style={styles.heading}>Free tiral period</Text>
+        <View style={styles.daysContainer}>
+          <Text style={styles.days}>30</Text>
+          <Text>Days</Text>
         </View>
-        <View style={styles.fullInputs}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>First Name</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setFirstName(text)}
-              value={firstName}
-              placeholder="Enter your first name"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Last Name</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setLastName(text)}
-              value={lastName}
-              placeholder="Enter your last name"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Address 1</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setAddress1(text)}
-              value={address1}
-              placeholder="Enter your Address"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Address 2</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setAddress2(text)}
-              value={address2}
-              placeholder="Enter your Address"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
+        <Text style={styles.description}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non at sed.
+        </Text>
+        <View style={styles.separator}>
+          <View style={styles.bar} />
+          <Text style={styles.separatorText}>Or</Text>
+          <View style={styles.bar} />
         </View>
-        <View style={styles.halfInputs}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>City</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setCity(text)}
-              value={city}
-              placeholder="Enter your City"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>State</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setState(text)}
-              value={state}
-              placeholder="Enter your State"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
+        <Text style={styles.periodHeading}>Choose your period</Text>
+        <View style={styles.inputsContainer}>
+          <Input
+            text="Start date"
+            value={startDate}
+            onChange={setStartDate}
+            containerStyle={styles.input}
+          />
+          <Input
+            text="End date"
+            value={endDate}
+            onChange={setEndDate}
+            containerStyle={styles.input}
+          />
         </View>
-        <View style={styles.halfInputs}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Zip</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setZip(text)}
-              value={zip}
-              placeholder="Enter your Zip Code"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Country</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setCountry(text)}
-              value={country}
-              placeholder="Enter your Country"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-        </View>
-        <View style={styles.halfInputs}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>Card Expiration</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setCardExpiry(text)}
-              value={cardExpiry}
-              placeholder="Enter Card Expiration"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputText}>CVV</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => setCvv(text)}
-              value={cvv}
-              placeholder="Enter your CVV"
-              placeholderTextColor="#9B9B9B"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </View>
-        </View>
-        <View style={styles.btnContainer}>
-          <Pressable style={styles.btn}>
-            <Text style={styles.btnText}>Update</Text>
-          </Pressable>
-        </View>
+        <Button buttonText="Ok" style={styles.button} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
   },
-  header: {
+  heading: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#000",
+    textAlign: "center"
+  },
+  daysContainer: {
+    width: 130,
+    height: 130,
+    borderRadius: 70,
+    borderColor: "#12D790",
+    borderWidth: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginVertical: 20
+  },
+  days: {
+    fontSize: 36,
+    fontWeight: "bold"
+  },
+  description: {
+    fontSize: 14,
+    color: "#888888",
+    textAlign: "center",
+    paddingHorizontal: 40
+  },
+  separator: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 20
+  },
+  bar: {
+    width: 100,
+    height: 1,
+    backgroundColor: "#e6e6e6"
+  },
+  separatorText: {
+    fontSize: 14,
+    color: "#888888",
+    marginHorizontal: 30
+  },
+  periodHeading: {
+    fontSize: 18,
+    color: "#000",
+    textAlign: "center",
+    marginVertical: 10,
+    fontWeight: "bold"
+  },
+  inputsContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
     padding: 20
   },
-  paletteContainer: {
-    flexDirection: "row",
-    backgroundColor: "#F1F1F1",
-    height: 60,
-    width: 250,
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "space-around",
-    paddingHorizontal: 15
-  },
-  selected: {
-    backgroundColor: "#fff",
-    padding: 10,
-    paddingHorizontal: 25,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#e6e6e6"
-  },
-  unSelected: {
-    padding: 10,
-    paddingHorizontal: 25
-  },
-  fullInputs: {
-    paddingHorizontal: 20,
-    justifyContent: "center"
-  },
-  inputContainer: {
-    flexDirection: "column",
+  input: {
     flex: 1,
-    justifyContent: "center",
     marginHorizontal: 5
   },
+  button: {
+    marginHorizontal: 40,
+    marginTop: 60,
+    marginBottom: 20
+  }
+});
+
+export default SubscriptionTrial;
+
+const Input = props => {
+  return (
+    <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text
+        ? (
+        <Text style={inputStyles.inputText}>{props.text}</Text>
+          )
+        : null}
+
+      <TextInput
+        style={[
+          inputStyles.input,
+          props.style,
+          props.textArea ? inputStyles.textArea : null
+        ]}
+        placeholder={props.placeholder ? props.placeholder : "Enter"}
+        value={props.value}
+        onChangeText={() => props.onChange()}
+        placeholderTextColor={
+          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
+        }
+        editable={props.editable !== false}
+        autoCapitalize="none"
+        autoCorrect={false}
+        multiline={!!props.textArea}
+        backgroundColor={props.backgroundColor}
+        secureTextEntry={props.secureTextEntry}
+      />
+      {props.errorText
+        ? (
+        <Text style={inputStyles.error}>{props.errorText}</Text>
+          )
+        : null}
+      {props.icon
+        ? (
+        <Pressable
+          onPress={() => props.iconOnPress()}
+          style={inputStyles.iconWithText}>
+          <Image source={props.icon} style={inputStyles.icon} />
+        </Pressable>
+          )
+        : null}
+      <View style={styles.children}>{props.children}</View>
+    </View>
+  );
+};
+
+const inputStyles = StyleSheet.create({
+  inputContainer: {
+    flexDirection: "column",
+    justifyContent: "center"
+  },
   inputText: {
-    fontSize: 16,
-    marginLeft: 20
+    fontSize: 14,
+    marginLeft: 20,
+    color: "#111112"
   },
   input: {
     borderWidth: 1,
@@ -222,35 +185,91 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 20,
     marginVertical: 10,
-    width: "100%"
+    width: "100%",
+    height: 50,
+    color: "#000"
   },
-  halfInputs: {
-    paddingHorizontal: 20,
-    justifyContent: "space-between",
-    flexDirection: "row" // borderColor: '#9B9B9B',
-    // borderWidth: 1,
-  },
-  btnContainer: {
-    padding: 30,
-    paddingTop: 10,
-    paddingHorizontal: 40,
+  iconWithText: {
+    position: "absolute",
+    right: 30,
+    bottom: 25,
+    width: 20,
+    height: 20,
     justifyContent: "center",
-    marginTop: 20
+    alignItems: "center",
+    zIndex: 1
+  },
+  icon: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain"
+  },
+  textArea: {
+    height: 150
+  },
+  children: {}
+});
+
+const Button = params => {
+  const backgroundColor = params.backgroundColor || "#000";
+  const textColor = params.textColor || "#fff";
+  const btnStyle = {
+    backgroundColor: backgroundColor,
+    borderColor: params.borderColor || backgroundColor,
+    borderWidth: 1
+  };
+  const btnText = {
+    color: textColor
+  };
+  return (
+    <View style={[buttonStyles.btnContainer, params.style]}>
+      <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
+        <Pressable
+          style={[buttonStyles.btn, btnStyle]}
+          onPress={params.onPress}>
+          <Text style={[buttonStyles.btnText, btnText]}>
+            {params.buttonText}
+          </Text>
+          <View style={styles.childrenContainer}>{params.children}</View>
+        </Pressable>
+      </View>
+    </View>
+  );
+};
+
+const buttonStyles = StyleSheet.create({
+  btnContainer: {
+    justifyContent: "center"
+  },
+  shadowContainer: {
+    shadowColor: "rgba(0, 0, 0, 0.5)",
+    shadowOffset: {
+      width: 0,
+      height: 5
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10
   },
   btn: {
-    backgroundColor: "black",
     height: 50,
-    width: "100%",
     padding: 10,
     paddingHorizontal: 25,
     borderRadius: 10,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+
+    flexDirection: "row"
   },
   btnText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold"
+  },
+  childrenContainer: {
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
-export default AddCardDetailsScreen;
